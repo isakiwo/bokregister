@@ -1,6 +1,7 @@
 body{
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
+    background-color: #222;
 }
 
 .menu {
@@ -36,4 +37,10 @@ th, td {
   
 table{
     margin: auto;
+}
+
+.register{
+  font-size: 20px;
+  margin: auto;
+  color: white;
 }
