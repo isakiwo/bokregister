@@ -1,8 +1,8 @@
 //let myJson = '{"titel" : "Jane Eyre", "writer" : "Charlotte Bronte" , "genre" : "roman"}';
 //let myObject = JSON.parse(myJson);
 let books;
-let writer;
-let titel;
+let author;
+let title;
 
 let Books = {book : [
     {"titel" : "Jane Eyre" , "writer" : "Charlotte Bronte"},
@@ -23,12 +23,12 @@ window.onload = init;
 function createTableRow(el){
     let tr = document.createElement("tr");
     let td = document.createElement("td");
-    td.innerHTML = el.writer;
+    td.innerHTML = el.author;
     tr.appendChild(td);
 
     
     td = document.createElement("td");
-    td.innerHTML = el.writer;
+    td.innerHTML = el.author;
     tr.appendChild(td);
 
     books.appendChild(tr);
