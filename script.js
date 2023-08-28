@@ -1,36 +1,47 @@
-//let myJson = '{"titel" : "Jane Eyre", "writer" : "Charlotte Bronte" , "genre" : "roman"}';
-//let myObject = JSON.parse(myJson);
 let books;
-let author;
 let title;
 
-let Books = {book : [
-    {"titel" : "Jane Eyre" , "writer" : "Charlotte Bronte"},
-    {"titel" : "Harry Potter" , "writer" : "JK Rowlin"}
-]};
-    
+
+let Books = [];
 
 function init(){
-    books = document.getElementById("books"); 
-    for(element of Books.book){
-        console.log(element);
-        createTableRow(element);
-        };
-        
+    books = document.getElementById("books");
+    getBooks();
 }
 window.onload = init;
 
-function createTableRow(el){
+async function getBooks(){
+    let Books = await getBooksFetch();
+
+    console.log(Books);
+
+    for (element of Books){
+        console.log(element);
+        createTableRow(element);
+    }
+}
+
+async function createTableRow(el){
     let tr = document.createElement("tr");
     let td = document.createElement("td");
     td.innerHTML = el.author;
     tr.appendChild(td);
 
-    
     td = document.createElement("td");
-    td.innerHTML = el.author;
+    td.innerHTML = el.title;
     tr.appendChild(td);
+
 
     books.appendChild(tr);
     console.log(tr);
+}
+
+async function getBooksFetch(){
+    const path = "https://localhost:7236/Book";
+
+    let response = await fetch(path);
+    console.log(response);
+
+    let json = response.json();
+    return json;
 }
