@@ -24,11 +24,11 @@ async function getBooks(){
 async function createTableRow(el){
     let tr = document.createElement("tr");
     let td = document.createElement("td");
-    td.innerHTML = el.author;
+    td.innerHTML = el.title;
     tr.appendChild(td);
 
     td = document.createElement("td");
-    td.innerHTML = el.title;
+    td.innerHTML = el.author;
     tr.appendChild(td);
 
 
